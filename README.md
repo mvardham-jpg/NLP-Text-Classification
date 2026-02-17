@@ -1,4 +1,3 @@
-
 # NLP Text Classification & Hierarchical Topic Clustering
 
 ## Overview
@@ -39,7 +38,7 @@ fetch_20newsgroups
 We build a supervised multi-class classifier using:
 
 * **TF-IDF vectorization**
-* scikit-learn **Pipeline** (to prevent data leakage)
+* scikit-learn **Pipeline** (prevents data leakage)
 * 4 required classifiers:
 
   1. Multinomial Naive Bayes
@@ -71,13 +70,13 @@ Evaluation metrics:
 * Macro-F1: **0.7138**
 * Accuracy: **0.7245**
 
-Linear SVM performed best overall, achieving the highest macro-F1 score and accuracy.
+Linear SVM achieved the best overall performance.
 
 ---
 
 # Confusion Analysis
 
-The most common classification confusions occurred between semantically similar categories:
+Most frequent misclassifications occurred between semantically similar categories:
 
 * Religion-related topics
 
@@ -93,7 +92,7 @@ The most common classification confusions occurred between semantically similar 
   * `comp.sys.ibm.pc.hardware` ↔ `comp.os.ms-windows.misc`
   * `comp.windows.x` ↔ `comp.os.ms-windows.misc`
 
-These confusions are expected due to overlapping vocabulary within related domains.
+These confusions are expected due to overlapping vocabulary.
 
 ---
 
@@ -118,15 +117,59 @@ NLP-Text-Classification/
 
 ---
 
+# Installation Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd NLP-Text-Classification
+```
+
+### 2. Create a virtual environment (recommended)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # Mac/Linux
+```
+
+On Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+If requirements.txt is missing, install manually:
+
+```bash
+pip install numpy pandas scikit-learn matplotlib tqdm sentence-transformers
+```
+
+---
+
 # How to Run Part 1
 
-From the project root:
+From the **project root directory**:
 
 ```bash
 python src/part1_classification.py
 ```
 
-Results will be saved to:
+What this script does:
+
+1. Loads 10,000 documents from 20 Newsgroups
+2. Splits into 80/20 train-test sets
+3. Builds a TF-IDF pipeline
+4. Trains all 4 classifiers
+5. Prints Accuracy and Macro-F1
+6. Displays top confusion pairs
+7. Saves results to:
 
 ```
 outputs/part1/results.json
@@ -134,13 +177,12 @@ outputs/part1/results.json
 
 ---
 
-# Technical Notes
+# Reproducibility
 
-* TF-IDF features limited to 50,000 max features
+* Random seed fixed at 42
+* Stratified train-test split
+* TF-IDF limited to 50,000 max features
 * English stopwords removed
-* Pipelines used to prevent data leakage
-* Fixed random seed for reproducibility
 
-
-
+---
 
