@@ -41,3 +41,10 @@ typing_extensions==4.13.2
 tzdata==2025.3
 urllib3==2.2.3
 zipp==3.20.2
+# torch is pulled in automatically by sentence-transformers
+sentence-transformers>=2.7.0
+torch>=2.0.0
+transformers>=4.30.0
+tokenizers>=0.13.0
+huggingface_hub>=0.16.0
+safetensors>=0.3.0
