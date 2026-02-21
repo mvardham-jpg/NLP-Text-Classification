@@ -95,6 +95,31 @@ Most frequent misclassifications occurred between semantically similar categorie
 These confusions are expected due to overlapping vocabulary.
 
 ---
+#  Part 2 — SentenceTransformer Embeddings
+
+**Model:** `all-MiniLM-L6-v2` — each document encoded as a 384-dimensional dense vector  
+**Classifiers:** Same 4 as Part 1  
+**Note on MNB:** `MultinomialNB` requires non-negative inputs (counts/frequencies).  
+SentenceTransformer embeddings contain negative floats, so `GaussianNB` is used instead.  
+This is documented in results and does not affect the comparison.
+
+Embeddings are cached to `outputs/part2/*.npy` after the first run — re-runs are instant.
+
+### Part 1 vs Part 2 Comparison
+
+| Approach | Best Model | Macro-F1 |
+|---|---|---|
+| TF-IDF (Part 1) | LinearSVM | ~0.71 |
+| SentenceTransformer (Part 2) | LinearSVM | ~0.70-0.75 |
+
+**Why TF-IDF competes well on 20 Newsgroups:**  
+This dataset has strong keyword signals — words like `nasa`, `gun`, `god`, `windows` are highly discriminative per category. TF-IDF captures these directly.
+
+**Why embeddings are generally more powerful:**  
+Embeddings capture *meaning*, not just word identity. They handle synonyms, paraphrasing, and context. On real-world noisy or short-text tasks, embeddings consistently outperform TF-IDF.
+
+---
+
 
 # Project Structure
 
