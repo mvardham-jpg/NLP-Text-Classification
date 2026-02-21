@@ -1,0 +1,234 @@
+[
+  {
+    "vectorizer": "tfidf",
+    "model": "MultinomialNB",
+    "accuracy": 0.708,
+    "macro_f1": 0.677700934587496,
+    "top_confusions": [
+      {
+        "count": 42,
+        "true_label": "alt.atheism",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 39,
+        "true_label": "talk.religion.misc",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 17,
+        "true_label": "talk.politics.misc",
+        "pred_label": "talk.politics.guns"
+      },
+      {
+        "count": 12,
+        "true_label": "comp.os.ms-windows.misc",
+        "pred_label": "comp.sys.ibm.pc.hardware"
+      },
+      {
+        "count": 10,
+        "true_label": "talk.politics.misc",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 10,
+        "true_label": "comp.windows.x",
+        "pred_label": "comp.os.ms-windows.misc"
+      },
+      {
+        "count": 9,
+        "true_label": "talk.religion.misc",
+        "pred_label": "talk.politics.guns"
+      },
+      {
+        "count": 9,
+        "true_label": "rec.autos",
+        "pred_label": "sci.space"
+      },
+      {
+        "count": 8,
+        "true_label": "sci.electronics",
+        "pred_label": "sci.crypt"
+      },
+      {
+        "count": 8,
+        "true_label": "comp.sys.ibm.pc.hardware",
+        "pred_label": "comp.os.ms-windows.misc"
+      }
+    ]
+  },
+  {
+    "vectorizer": "tfidf",
+    "model": "LogisticRegression",
+    "accuracy": 0.717,
+    "macro_f1": 0.7004498636705405,
+    "top_confusions": [
+      {
+        "count": 28,
+        "true_label": "talk.religion.misc",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 12,
+        "true_label": "alt.atheism",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 11,
+        "true_label": "talk.politics.misc",
+        "pred_label": "talk.politics.guns"
+      },
+      {
+        "count": 11,
+        "true_label": "comp.windows.x",
+        "pred_label": "comp.os.ms-windows.misc"
+      },
+      {
+        "count": 11,
+        "true_label": "comp.sys.mac.hardware",
+        "pred_label": "sci.electronics"
+      },
+      {
+        "count": 10,
+        "true_label": "comp.sys.ibm.pc.hardware",
+        "pred_label": "comp.os.ms-windows.misc"
+      },
+      {
+        "count": 9,
+        "true_label": "comp.windows.x",
+        "pred_label": "comp.graphics"
+      },
+      {
+        "count": 9,
+        "true_label": "comp.os.ms-windows.misc",
+        "pred_label": "comp.sys.ibm.pc.hardware"
+      },
+      {
+        "count": 8,
+        "true_label": "sci.space",
+        "pred_label": "sci.electronics"
+      },
+      {
+        "count": 8,
+        "true_label": "rec.motorcycles",
+        "pred_label": "rec.autos"
+      }
+    ]
+  },
+  {
+    "vectorizer": "tfidf",
+    "model": "LinearSVM",
+    "accuracy": 0.7225,
+    "macro_f1": 0.7114500926060531,
+    "top_confusions": [
+      {
+        "count": 24,
+        "true_label": "talk.religion.misc",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 13,
+        "true_label": "comp.sys.ibm.pc.hardware",
+        "pred_label": "comp.os.ms-windows.misc"
+      },
+      {
+        "count": 10,
+        "true_label": "talk.politics.misc",
+        "pred_label": "talk.politics.guns"
+      },
+      {
+        "count": 10,
+        "true_label": "comp.windows.x",
+        "pred_label": "comp.os.ms-windows.misc"
+      },
+      {
+        "count": 9,
+        "true_label": "comp.os.ms-windows.misc",
+        "pred_label": "comp.sys.ibm.pc.hardware"
+      },
+      {
+        "count": 9,
+        "true_label": "alt.atheism",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 8,
+        "true_label": "rec.motorcycles",
+        "pred_label": "rec.autos"
+      },
+      {
+        "count": 7,
+        "true_label": "soc.religion.christian",
+        "pred_label": "talk.religion.misc"
+      },
+      {
+        "count": 7,
+        "true_label": "sci.space",
+        "pred_label": "sci.electronics"
+      },
+      {
+        "count": 7,
+        "true_label": "sci.electronics",
+        "pred_label": "rec.autos"
+      }
+    ]
+  },
+  {
+    "vectorizer": "tfidf",
+    "model": "RandomForest",
+    "accuracy": 0.6445,
+    "macro_f1": 0.6270580030248166,
+    "top_confusions": [
+      {
+        "count": 30,
+        "true_label": "talk.religion.misc",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 21,
+        "true_label": "rec.sport.baseball",
+        "pred_label": "rec.sport.hockey"
+      },
+      {
+        "count": 15,
+        "true_label": "alt.atheism",
+        "pred_label": "soc.religion.christian"
+      },
+      {
+        "count": 14,
+        "true_label": "comp.sys.ibm.pc.hardware",
+        "pred_label": "comp.os.ms-windows.misc"
+      },
+      {
+        "count": 13,
+        "true_label": "talk.politics.misc",
+        "pred_label": "talk.politics.guns"
+      },
+      {
+        "count": 10,
+        "true_label": "sci.electronics",
+        "pred_label": "comp.sys.ibm.pc.hardware"
+      },
+      {
+        "count": 10,
+        "true_label": "rec.motorcycles",
+        "pred_label": "rec.autos"
+      },
+      {
+        "count": 9,
+        "true_label": "talk.religion.misc",
+        "pred_label": "talk.politics.guns"
+      },
+      {
+        "count": 9,
+        "true_label": "sci.electronics",
+        "pred_label": "rec.autos"
+      },
+      {
+        "count": 9,
+        "true_label": "comp.windows.x",
+        "pred_label": "comp.os.ms-windows.misc"
+      }
+    ]
+  }
+]
