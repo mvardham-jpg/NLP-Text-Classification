@@ -7,8 +7,8 @@ from data import load_20newsgroups_sample
 
 # ================= Configuration Area =================
 # API Key for Gemini Pro integration
-import os
-API_KEY = os.getenv("GEMINI_API_KEY")
+API_KEY = "YOUR_API_KEY_HERE"
+# Users need to provide their own Gemini API Key in src/part3.py
 
 # Model name for LLM labeling
 MODEL_NAME = "models/gemini-pro-latest"
