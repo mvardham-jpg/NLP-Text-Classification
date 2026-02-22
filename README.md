@@ -209,15 +209,14 @@ outputs/part1/results.json
 ---
 
 ```bash
-python src/part2_embeddings.py
-
+python src/part2_embeddings.py 
+```
 What this script does:
 1. Load data same as Part 1
 2. Encode documents into numbers via SentenceTransformer (cached to disk)
 3. Train 4 classifiers on those 384-number vectors 
 4. Evaluate compute_metrics() and top_confusions() from eval.py 
-5. Save results to: 
-```
+5. Save results to:
 
 ```
 outputs/part2/results.json
