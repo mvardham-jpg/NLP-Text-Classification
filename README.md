@@ -256,7 +256,13 @@ What this script does:
 2. Determines Optimal K (Elbow Method):Computes Inertia for $K$ values 2-10.Saves the plot to outputs/part3/elbow_method.png.
 3. Top-Level Clustering (Step A):Performs KMeans ($K=6$) and finds representative documents.Generates labels via Gemini Pro or a robust local fallback.
 4. Hierarchical Refinement (Step B):Re-clusters the 2 largest clusters into 3 sub-clusters each.Generates specific sub-topic labels for the hierarchy.
-5. Displays Partial Tree (Step C):Prints an ASCII tree structure in the terminal.Saves hierarchical data to outputs/part3/topic_tree.json.
+5. Displays Partial Tree (Step C):Prints an ASCII tree structure in the terminal.
+6. Saves hierarchical data to
+
+```
+outputs/part3/topic_tree.json
+```
+
 Key Configuration:USE_LIVE_API: True for LLM labels (13s delay); False for instant local mapping.
 ---
 
