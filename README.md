@@ -6,11 +6,9 @@ This project builds an end-to-end NLP pipeline on the **20 Newsgroups dataset** 
 
 The project consists of three parts:
 
-* Part 1: Classic TF-IDF Classification (Completed)
+* Part 1: Classic TF-IDF Classification 
 * Part 2: SentenceTransformer Embeddings
 * Part 3: Topic Clustering + 2-Level Topic Tree
-
-This README documents progress through **Part 1**.
 
 ---
 
@@ -119,7 +117,32 @@ This dataset has strong keyword signals — words like `nasa`, `gun`, `god`, `wi
 Embeddings capture *meaning*, not just word identity. They handle synonyms, paraphrasing, and context. On real-world noisy or short-text tasks, embeddings consistently outperform TF-IDF.
 
 ---
+# Part 3 — Topic Clustering + 2-Level Topic Tree
 
+This part focuses on discovering latent structures in the document collection without using predefined labels.
+
+## Technical Workflow
+
+### 1. Optimal K Selection (Elbow Method)
+We calculated the **Inertia** (sum of squared distances) for $K=2$ to $K=10$.
+* **Analysis**: While semantic vectors often yield smooth curves, we identified **$K=6$** as the optimal point where the marginal gain in inertia reduction begins to stabilize.
+* **Output**: A visualization is automatically saved to `outputs/part3/elbow_method.png`.
+
+
+
+### 2. Representative Document Extraction
+For each cluster, we identify the documents closest to the **cluster centroid**. These documents serve as the ground truth for understanding the cluster's semantic core.
+
+### 3. Hierarchical Labeling (LLM Integration)
+We use a **two-tier labeling engine**:
+* **LLM Engine**: Integrates **Gemini Pro** to generate interpretable topic labels (2-3 words) based on representative documents and keywords.
+* **Local Fallback**: A robust fallback system that maps keywords to predefined categories or generates keyword-based labels to handle API rate limits (RPM 5 / RPD 20).
+
+### 4. 2-Level Partial Tree
+* **Step B**: Automatically selects the **2 largest clusters** and re-clusters them into **3 sub-clusters** each.
+* **Step C**: Displays a professional ASCII tree structure in the terminal.
+
+---
 
 # Project Structure
 
@@ -138,7 +161,8 @@ NLP-Text-Classification/
 │   ├── part2/results.json       
 │   ├── part2/train_embeddings.npy
 │   ├── part2/test_embeddings.npy
-│   └── part3/
+│   ├── part3/topic_tree.json     # Final hierarchical JSON structure
+│   └── part3/elbow_method.png    # Elbow method visualization
 │
 ├── data/
 │   └── sklearn_cache/20news-bydate_py3.pkz            # 20 Newsgroups cached here after first download
@@ -222,6 +246,18 @@ What this script does:
 outputs/part2/results.json
 ```
 
+---
+
+```bash
+python src/part3_clustering.py
+```
+What this script does:
+1. Loads Cached Data: Retrieves documents and the 384-dimensional S-BERT embeddings from Part 2
+2. Determines Optimal K (Elbow Method):Computes Inertia for $K$ values 2-10.Saves the plot to outputs/part3/elbow_method.png.
+3. Top-Level Clustering (Step A):Performs KMeans ($K=6$) and finds representative documents.Generates labels via Gemini Pro or a robust local fallback.
+4. Hierarchical Refinement (Step B):Re-clusters the 2 largest clusters into 3 sub-clusters each.Generates specific sub-topic labels for the hierarchy.
+5. Displays Partial Tree (Step C):Prints an ASCII tree structure in the terminal.Saves hierarchical data to outputs/part3/topic_tree.json.
+Key Configuration:USE_LIVE_API: True for LLM labels (13s delay); False for instant local mapping.
 ---
 
 # Reproducibility
