@@ -262,9 +262,10 @@ What this script does:
 ```
 outputs/part3/topic_tree.json
 ```
+---
 
 Key Configuration:USE_LIVE_API: True for LLM labels (13s delay); False for instant local mapping.
----
+
 
 # Reproducibility
 
