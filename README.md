@@ -97,13 +97,13 @@ These confusions are expected due to overlapping vocabulary.
 ---
 #  Part 2 — SentenceTransformer Embeddings
 
-**Model:** `all-MiniLM-L6-v2` — each document encoded as a 384-dimensional dense vector  
+**Model:** `all-MiniLM-L6-v2` - each document encoded as a 384-dimensional dense vector  
 **Classifiers:** Same 4 as Part 1  
 **Note on MNB:** `MultinomialNB` requires non-negative inputs (counts/frequencies).  
 SentenceTransformer embeddings contain negative floats, so `GaussianNB` is used instead.  
 This is documented in results and does not affect the comparison.
 
-Embeddings are cached to `outputs/part2/*.npy` after the first run — re-runs are instant.
+Embeddings are cached to `outputs/part2/*.npy` after the first run - re-runs are instant.
 
 ### Part 1 vs Part 2 Comparison
 
@@ -134,8 +134,14 @@ NLP-Text-Classification/
 │   └── part3_clustering.py
 │
 ├── outputs/
-│   └── part1/results.json
+│   ├── part1/results.json        
+│   ├── part2/results.json       
+│   ├── part2/train_embeddings.npy
+│   ├── part2/test_embeddings.npy
+│   └── part3/
 │
+├── data/
+│   └── sklearn_cache/20news-bydate_py3.pkz            # 20 Newsgroups cached here after first download
 ├── requirements.txt
 └── README.md
 ```
@@ -178,7 +184,7 @@ pip install numpy pandas scikit-learn matplotlib tqdm sentence-transformers
 
 ---
 
-# How to Run Part 1
+# How to Run 
 
 From the **project root directory**:
 
@@ -198,6 +204,23 @@ What this script does:
 
 ```
 outputs/part1/results.json
+```
+
+---
+
+```bash
+python src/part2_embeddings.py
+
+What this script does:
+1. Load data same as Part 1
+2. Encode documents into numbers via SentenceTransformer (cached to disk)
+3. Train 4 classifiers on those 384-number vectors 
+4. Evaluate compute_metrics() and top_confusions() from eval.py 
+5. Save results to: 
+```
+
+```
+outputs/part2/results.json
 ```
 
 ---
