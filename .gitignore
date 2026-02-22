@@ -212,3 +212,17 @@ data/
 outputs/
 *.npy
 *.pkl
+
+# Data & outputs
+.data/
+.outputs/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Mac files
+.DS_Store
+._*
+
+# Python cache
+__pycache__/
