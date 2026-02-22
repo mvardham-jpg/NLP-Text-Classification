@@ -1,0 +1,58 @@
+[
+  {
+    "label": "Windows System & Software",
+    "size": 2060,
+    "children": [
+      {
+        "label": "Automotive & Transport",
+        "size": 834
+      },
+      {
+        "label": "File / Use",
+        "size": 730
+      },
+      {
+        "label": "Drive / Disk",
+        "size": 496
+      }
+    ]
+  },
+  {
+    "label": "Misc Topic",
+    "size": 231,
+    "children": []
+  },
+  {
+    "label": "Religion & Philosophy",
+    "size": 1258,
+    "children": []
+  },
+  {
+    "label": "Technical Data Misc",
+    "size": 2440,
+    "children": [
+      {
+        "label": "Automotive & Transport",
+        "size": 703
+      },
+      {
+        "label": "Like / Just",
+        "size": 819
+      },
+      {
+        "label": "Space & NASA Science",
+        "size": 918
+      }
+    ]
+  },
+  {
+    "label": "Politics & Legal Affairs",
+    "size": 1266,
+    "children": []
+  },
+  {
+    "label": "Sports & Athletics",
+    "size": 745,
+    "children": []
+  }
+]
